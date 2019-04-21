@@ -1,9 +1,10 @@
 ---
-- name: "gather junos version output it to xml and template it using jinja  " 
+- name: "gather junos version output it to xml and template it using jinja and hostvar param  " 
   hosts: junos
   connection: local
   vars:
     - dir_path: result
+    - allhosts: "{{hostvars}}"
   tasks:
     - name: "get routing engine cpu information "
       junos_command:
@@ -15,7 +16,6 @@
         out_version: "{{ cmd_result.output[0]['rpc-reply']['software-information']['package-information']['comment'] }}"
         out_model: "{{ cmd_result.output[0]['rpc-reply']['software-information']['product-model'] }}"
     
-    
-    - template: src="easywins_ex2_jinja_output.j2" dest="{{dir_path}}/{{inventory_hostname~"_ex2"}}.log"
+    - template: src="easywins_ex4_jinja_output.j2" dest="{{dir_path}}/{{inventory_hostname~"_ex4"}}.log"
 
     

@@ -1,5 +1,5 @@
 ---
-- name: "Print both ios and snmp facts  " 
+- name: "Gather ios facts and copy them to file " 
   hosts: ios
   connection: local
   vars:
