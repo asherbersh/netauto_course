@@ -1,0 +1,29 @@
+---
+- name: "Print both ios and snmp facts  " 
+  hosts: ios
+  connection: local
+  vars:
+    - results: results
+  tasks:
+  
+    - name: "gather ios facts"
+      ios_facts:
+      register: myfacts_ios
+
+    - name: "gather snmp facts"
+      snmp_facts:
+        host: "{{inventory_hostname}}"
+        version: v2
+        community: public
+      register: myfacts_snmp
+
+    - name: "print routers ios facts"
+      debug: var=myfacts_snmp
+
+    - name: "print routers snmp facts"
+      debug: var=myfacts_snmp
+
+    - name: "print routers hostname" 
+      debug: var=myfacts_ios.ansible_facts.ansible_net_hostname
+
+    

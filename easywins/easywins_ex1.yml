@@ -1,0 +1,22 @@
+---
+- name: "Print both ios and snmp facts  " 
+  hosts: ios
+  connection: local
+  vars:
+    - dir_path: result
+  tasks:
+    - name: "delete result directory"
+      file: path={{dir_path}} state=absent
+      run_once: true
+      
+    - name: "create result directory"
+      file: path={{dir_path}} state=directory
+      run_once: true
+
+    - name: "gather ios facts"
+      ios_facts:
+      register: myfacts_ios
+
+    - name: "print routers ios facts"
+      copy: content="{{myfacts_ios}}" dest="{{dir_path}}/{{inventory_hostname~"_ex1"}}.json"
+    
