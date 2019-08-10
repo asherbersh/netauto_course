@@ -1,0 +1,93 @@
+===========================router 192.168.20.243==================================
+
+
+ hostname:    192.168.20.16
+ ip address:  192.168.20.16
+ mac address:  9c:b6:d0:bc:b6:eb
+
+
+ hostname:    192.168.20.20
+ ip address:  192.168.20.20
+ mac address:  00:11:32:6a:6c:f7
+
+
+ hostname:    192.168.20.42
+ ip address:  192.168.20.42
+ mac address:  00:04:4b:49:77:3a
+
+
+ hostname:    192.168.20.43
+ ip address:  192.168.20.43
+ mac address:  30:52:cb:82:44:4b
+
+
+ hostname:    192.168.20.100
+ ip address:  192.168.20.100
+ mac address:  08:00:27:02:cc:c4
+
+
+ hostname:    192.168.20.254
+ ip address:  192.168.20.254
+ mac address:  b0:6e:bf:dd:f7:d0
+
+}
+==========get first and second value from the dictornarty of first item in list==================
+
+
+
+ arp-table-entry-flags
+ {u'none': u''}
+ hostname
+ 192.168.20.16
+ mac-address
+ 9c:b6:d0:bc:b6:eb
+ ip-address
+ 192.168.20.16
+ interface-name
+ ge-0/0/0.0
+}
+
+
+
+============================sorted by mac-using python script(located in filter_plugins)=================================================
+
+
+haim asher
+
+[{u'arp-table-entry-flags': {u'none': u''}, u'hostname': u'192.168.20.42', u'mac-address': u'00:04:4b:49:77:3a', u'ip-address': u'192.168.20.42', u'interface-name': u'ge-0/0/0.0'}, {u'arp-table-entry-flags': {u'none': u''}, u'hostname': u'192.168.20.20', u'mac-address': u'00:11:32:6a:6c:f7', u'ip-address': u'192.168.20.20', u'interface-name': u'ge-0/0/0.0'}, {u'arp-table-entry-flags': {u'none': u''}, u'hostname': u'192.168.20.100', u'mac-address': u'08:00:27:02:cc:c4', u'ip-address': u'192.168.20.100', u'interface-name': u'ge-0/0/0.0'}, {u'arp-table-entry-flags': {u'none': u''}, u'hostname': u'192.168.20.43', u'mac-address': u'30:52:cb:82:44:4b', u'ip-address': u'192.168.20.43', u'interface-name': u'ge-0/0/0.0'}, {u'arp-table-entry-flags': {u'none': u''}, u'hostname': u'192.168.20.16', u'mac-address': u'9c:b6:d0:bc:b6:eb', u'ip-address': u'192.168.20.16', u'interface-name': u'ge-0/0/0.0'}, {u'arp-table-entry-flags': {u'none': u''}, u'hostname': u'192.168.20.254', u'mac-address': u'b0:6e:bf:dd:f7:d0', u'ip-address': u'192.168.20.254', u'interface-name': u'ge-0/0/0.0'}]
+
+
+
+
+=========================================output the arp table sorted by mac=====================================
+
+
+    hostname:          192.168.20.42
+    mac address:       00:04:4b:49:77:3a
+    interface name:    ge-0/0/0.0
+    
+
+    hostname:          192.168.20.20
+    mac address:       00:11:32:6a:6c:f7
+    interface name:    ge-0/0/0.0
+    
+
+    hostname:          192.168.20.100
+    mac address:       08:00:27:02:cc:c4
+    interface name:    ge-0/0/0.0
+    
+
+    hostname:          192.168.20.43
+    mac address:       30:52:cb:82:44:4b
+    interface name:    ge-0/0/0.0
+    
+
+    hostname:          192.168.20.16
+    mac address:       9c:b6:d0:bc:b6:eb
+    interface name:    ge-0/0/0.0
+    
+
+    hostname:          192.168.20.254
+    mac address:       b0:6e:bf:dd:f7:d0
+    interface name:    ge-0/0/0.0
+    

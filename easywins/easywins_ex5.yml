@@ -1,0 +1,17 @@
+---
+- hosts: junos
+  connection: local
+  vars: 
+  - dir_path: result
+  tasks: 
+    - name: "perform show arp command"  
+      junos_command:
+        commands: "show arp | display xml"
+      register: arp_result
+    
+    - name: "set arp result as facts"
+      set_fact:
+       out_arp: "{{arp_result.output[0]['rpc-reply']['arp-table-information']['arp-table-entry']}}"
+    
+    - name: "print all arp result sorted using jinga template"
+      template: src="easywins_ex5_jinja_output.j2" dest="{{dir_path}}/{{inventory_hostname~"_ex5"}}.log"

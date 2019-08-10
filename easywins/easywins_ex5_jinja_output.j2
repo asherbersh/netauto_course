@@ -1,0 +1,40 @@
+===========================router {{inventory_hostname}}==================================
+
+{%for result in out_arp%}
+
+ hostname:    {{result.hostname}}
+ ip address:  {{result['ip-address']}}
+ mac address:  {{result['mac-address']}}
+
+{%endfor%}}
+==========get first and second value from the dictornarty of first item in list==================
+
+
+
+{%for val1,val2 in out_arp[0].items()%}
+ {{val1}}
+ {{val2}}
+{%endfor%}}
+
+
+
+============================sorted by mac-using python script(located in filter_plugins)=================================================
+
+
+{{'haim'|test}}
+
+{{out_arp|dicsort("mac-address")}}
+
+
+
+
+=========================================output the arp table sorted by mac=====================================
+
+{%set arp_sorted=out_arp|dicsort("mac-address")%}
+{% for items in arp_sorted %}
+
+    hostname:          {{items.hostname}}
+    mac address:       {{items['mac-address']}}
+    interface name:    {{items['interface-name']}}
+    
+{%endfor%}
